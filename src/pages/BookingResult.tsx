@@ -19,7 +19,7 @@ function BookingResult() {
   const [booking, setBooking] = useState<Booking | null>(null);
 
   // ✅ Use environment variable for backend URL
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     if (success && bookingId) {
