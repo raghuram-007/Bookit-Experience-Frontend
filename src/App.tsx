@@ -17,7 +17,6 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
 
-  // ✅ Use .env variable here
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
@@ -33,9 +32,8 @@ function App() {
         setLoading(false);
       }
     };
-
     fetchExperiences();
-  }, [API_BASE_URL]); // ✅ re-fetch if API changes
+  }, [API_BASE_URL]);
 
   const filteredExperiences = experiences.filter(
     (exp) =>
@@ -48,7 +46,9 @@ function App() {
       <div className="flex justify-center items-center h-screen bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600 text-lg font-medium">Loading amazing experiences...</p>
+          <p className="text-gray-600 text-lg font-medium">
+            Loading amazing experiences...
+          </p>
         </div>
       </div>
     );
@@ -59,7 +59,9 @@ function App() {
       <div className="flex justify-center items-center h-screen bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="text-center bg-white p-8 rounded-2xl shadow-lg border border-red-200 max-w-md">
           <div className="text-red-500 text-4xl mb-4">⚠️</div>
-          <h3 className="text-red-600 text-xl font-bold mb-2">Oops! Something went wrong</h3>
+          <h3 className="text-red-600 text-xl font-bold mb-2">
+            Oops! Something went wrong
+          </h3>
           <p className="text-gray-600">{error}</p>
           <button
             onClick={() => window.location.reload()}
@@ -73,10 +75,10 @@ function App() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen w-full">
+    <div className="w-full min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 overflow-x-hidden">
       {/* ================= HEADER ================= */}
-      <header className="w-full bg-white backdrop-blur-sm border-b border-gray-200 shadow-md sticky top-0 z-50">
-        <div className="w-full mx-auto flex items-center justify-between py-4 px-10">
+      <header className="w-full bg-white border-b border-gray-200 shadow-md sticky top-0 z-50">
+        <div className="flex items-center justify-between py-4 px-8 w-full">
           {/* Left - Logo */}
           <div className="flex items-center gap-3 group cursor-pointer">
             <img
@@ -103,13 +105,16 @@ function App() {
       </header>
 
       {/* ================= MAIN CONTENT ================= */}
-      <main className=" px-6 py-10">
+      <main className="w-full px-8 py-10">
         {filteredExperiences.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-3xl shadow-sm border border-gray-200">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">No experiences found</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">
+              No experiences found
+            </h3>
             <p className="text-gray-600 max-w-md mx-auto">
-              Try adjusting your search terms or filters to find what you're looking for.
+              Try adjusting your search terms or filters to find what you're
+              looking for.
             </p>
           </div>
         ) : (
