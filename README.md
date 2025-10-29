@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+#if you want an installation step and setup detail you can check in readme (1) 
+# React + TypeScript + Vite
+>>>>>>> fd4cd86622a404495b339662e57afa01c7c16756
 
 # 🌟 BookIt - Experience Booking Platform
 
