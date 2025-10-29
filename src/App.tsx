@@ -73,10 +73,10 @@ function App() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen w-full">
       {/* ================= HEADER ================= */}
       <header className="w-full bg-white backdrop-blur-sm border-b border-gray-200 shadow-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+        <div className="w-full mx-auto flex items-center justify-between py-4 px-10">
           {/* Left - Logo */}
           <div className="flex items-center gap-3 group cursor-pointer">
             <img
