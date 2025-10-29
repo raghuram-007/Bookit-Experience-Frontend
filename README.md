@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 =======
-#if you want an installation step and setup detail you can check in readme (1) 
+# just show Readme for setup so i modified the filename u can check readme 1 for react+typescript config
 # React + TypeScript + Vite
 >>>>>>> fd4cd86622a404495b339662e57afa01c7c16756
 
