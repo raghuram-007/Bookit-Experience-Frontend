@@ -103,7 +103,7 @@ function App() {
       </header>
 
       {/* ================= MAIN CONTENT ================= */}
-      <main className="max-w-7xl mx-auto px-6 py-10">
+      <main className=" px-6 py-10">
         {filteredExperiences.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-3xl shadow-sm border border-gray-200">
             <div className="text-6xl mb-4">🔍</div>
