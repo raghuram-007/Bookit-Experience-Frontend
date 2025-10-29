@@ -1,3 +1,4 @@
+#if you want an installation step and setup detail you can check in readme (1) 
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
