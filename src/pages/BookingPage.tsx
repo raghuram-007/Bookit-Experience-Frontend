@@ -186,7 +186,7 @@ export default function BookingPage() {
           <div className="flex items-center gap-2 mb-4">
             <input
               type="text"
-              placeholder="Promo code"
+              placeholder="Promo code(save10)"
               value={promoCode}
               onChange={(e) => setPromoCode(e.target.value)}
               className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-1 focus:ring-gray-400 focus:outline-none"
