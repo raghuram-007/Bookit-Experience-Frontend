@@ -15,7 +15,7 @@ export default function BookingPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [experience, setExperience] = useState<ExperienceSummary>({
     _id: id || "",
