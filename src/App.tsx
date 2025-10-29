@@ -17,10 +17,13 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
 
+  // ✅ Use .env variable here
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const res = await fetch("https://bookit-experiences-slots.onrender.com/api/experiences");
+        const res = await fetch(`${API_BASE_URL}/api/experiences`);
         if (!res.ok) throw new Error("Failed to fetch experiences");
         const data = await res.json();
         setExperiences(data);
@@ -32,7 +35,7 @@ function App() {
     };
 
     fetchExperiences();
-  }, []);
+  }, [API_BASE_URL]); // ✅ re-fetch if API changes
 
   const filteredExperiences = experiences.filter(
     (exp) =>
@@ -58,7 +61,7 @@ function App() {
           <div className="text-red-500 text-4xl mb-4">⚠️</div>
           <h3 className="text-red-600 text-xl font-bold mb-2">Oops! Something went wrong</h3>
           <p className="text-gray-600">{error}</p>
-          <button 
+          <button
             onClick={() => window.location.reload()}
             className="mt-4 bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-2 rounded-lg transition-colors duration-200"
           >
@@ -70,42 +73,37 @@ function App() {
   }
 
   return (
-    <div className=" bg-gradient-to-br from-gray-50 to-gray-100  ">
+    <div className="bg-gradient-to-br from-gray-50 to-gray-100">
       {/* ================= HEADER ================= */}
       <header className="w-full bg-white backdrop-blur-sm border-b border-gray-200 shadow-md sticky top-0 z-50">
-  <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-    {/* Left - Logo */}
-    <div className="flex items-center gap-3 group cursor-pointer">
-      <img
-        src={deliote}
-        alt="logo"
-        className="w-20 h-20 rounded-full border-2 shadow-md group-hover:scale-110 transition-transform duration-300"
-      />
-    </div>
+        <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+          {/* Left - Logo */}
+          <div className="flex items-center gap-3 group cursor-pointer">
+            <img
+              src={deliote}
+              alt="logo"
+              className="w-20 h-20 rounded-full border-2 shadow-md group-hover:scale-110 transition-transform duration-300"
+            />
+          </div>
 
-    {/* Middle - Search */}
-    <div className="flex items-center w-full max-w-lg bg-white border border-gray-300 rounded-full shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
-      <input
-        type="text"
-        placeholder="Search experiences..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="flex-grow px-5 py-2 bg-transparent text-gray-800 placeholder-gray-500 focus:outline-none"
-      />
-      <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 transition-all duration-200">
-        Search
-      </button>
-    </div>
-  </div>
-</header>
-
+          {/* Middle - Search */}
+          <div className="flex items-center w-full max-w-lg bg-white border border-gray-300 rounded-full shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <input
+              type="text"
+              placeholder="Search experiences..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="flex-grow px-5 py-2 bg-transparent text-gray-800 placeholder-gray-500 focus:outline-none"
+            />
+            <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 transition-all duration-200">
+              Search
+            </button>
+          </div>
+        </div>
+      </header>
 
       {/* ================= MAIN CONTENT ================= */}
       <main className="max-w-7xl mx-auto px-6 py-10">
-       
-       
-      
-        {/* Experiences Grid */}
         {filteredExperiences.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-3xl shadow-sm border border-gray-200">
             <div className="text-6xl mb-4">🔍</div>
@@ -122,8 +120,6 @@ function App() {
           </div>
         )}
       </main>
-
-     
     </div>
   );
 }

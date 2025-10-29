@@ -18,14 +18,17 @@ function BookingResult() {
 
   const [booking, setBooking] = useState<Booking | null>(null);
 
+  // ✅ Use environment variable for backend URL
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     if (success && bookingId) {
-      fetch(`/api/bookings/${bookingId}`)
+      fetch(`${API_URL}/api/bookings/${bookingId}`)
         .then((res) => res.json())
         .then((data) => setBooking(data))
         .catch(() => setBooking(null));
     }
-  }, [success, bookingId]);
+  }, [success, bookingId, API_URL]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
